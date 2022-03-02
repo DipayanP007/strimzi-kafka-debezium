@@ -7,8 +7,8 @@ global:
 
 postgresqlExtendedConf:
   wal_level: logical
-  max_wal_senders: 1
-  max_replication_slots: 1
+  #max_wal_senders: 1
+  #max_replication_slots: 1
 
 commonLabels:
   application: postgresql
