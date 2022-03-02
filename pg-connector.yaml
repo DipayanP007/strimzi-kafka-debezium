@@ -14,7 +14,7 @@ spec:
     database.server.name: "postgres"
     database.user: "postgres"
     plugin.name: "pgoutput"
-    slot.name: kafka
+    slot.name: kafka2
     schema.whitelist: "public"
     table.whitelist: "public.demo"
     snapshot.mode: "always"

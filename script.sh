@@ -10,12 +10,13 @@ kafka-console-producer.sh \
 # Exec into consumer pod and run
 kafka-console-consumer.sh \
   --bootstrap-server kafka-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092 \
-  --topic test \
+  --topic kafkadb.kafka.kafka \
   --from-beginning
 
-
+# List topics
+kafka-topics.sh --bootstrap-server kafka-cluster-kafka-bootstrap:9092 --list
 
 # Check replication slot
 select * from pg_replication_slots;
 # Drop replication slot
-select pg_drop_replication_slot(‘SLOT_NAME’);
+select pg_drop_replication_slot('kafka');
