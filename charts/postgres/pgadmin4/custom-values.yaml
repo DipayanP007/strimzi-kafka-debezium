@@ -1,0 +1,15 @@
+service:
+  type: NodePort
+  port: 80
+  targetPort: 80
+  # targetPort: 4181 To be used with a proxy extraContainer
+  portName: http
+  nodePort: 32000
+
+env:
+  email: pg@pg.com
+  password: admin123
+
+persistentVolume:
+  storageClass: "standard"
+  size: 1Gi
