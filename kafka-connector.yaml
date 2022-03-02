@@ -1,0 +1,23 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaConnector
+metadata:
+  name: kafka-connector
+  labels:
+    strimzi.io/cluster: postgres-connection
+spec:
+  class: io.debezium.connector.postgresql.PostgresConnector
+  config:
+    database.dbname: "kafka"
+    database.hostname: "postgres-postgresql.postgres.svc.cluster.local"
+    database.port: "5432"
+    database.password: "admin123"
+    database.server.name: "kafkadb"
+    database.user: "postgres"
+    plugin.name: "pgoutput"
+    slot.name: kafka2
+    schema.whitelist: "kafka"
+    table.whitelist: "kafka.kafka"
+    snapshot.mode: "always"
+    # database.history.kafka.bootstrap.servers: "my-cluster-kafka-bootstrap:9092"
+    # database.history.kafka.topic: "schema-changes.inventory"
+  tasksMax: 1
